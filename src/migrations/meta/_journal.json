@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1711039814193,
+      "tag": "0000_burly_stepford_cuckoos",
+      "breakpoints": true
+    }
+  ]
+}
