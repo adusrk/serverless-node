@@ -5,6 +5,8 @@ useDotenv: true
 provider:
   name: aws
   runtime: nodejs20.x
+  # deploymentBucket:
+  #   name: serverless-nodejs-api-pro-serverlessdeploymentbuck-yjfrsugorh6j
   environment:
     DATABASE_URL: ${env:DATABASE_URL, "fallback value"}
 functions:
@@ -12,6 +14,10 @@ functions:
     handler: src/index.handler
     events:
       - httpApi: '*'
+custom:
+  dotenv:
+    exclude:
+      -DATABASE_URL
 
 plugins:
   - serverless-offline

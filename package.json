@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "serverless offline --stage dev"
+    "dev": "serverless offline --stage dev",
+    "deploy": "serverless deploy --stage prod --region ap-southeast-1"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.0",
+    "aws-sdk": "^2.1582.0",
     "drizzle-orm": "^0.30.4",
     "express": "^4.18.2",
     "serverless-http": "^3.1.1"
