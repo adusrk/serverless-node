@@ -9,6 +9,7 @@ provider:
   #   name: serverless-nodejs-api-pro-serverlessdeploymentbuck-yjfrsugorh6j
   environment:
     DATABASE_URL: ${env:DATABASE_URL, "fallback value"}
+    STAGE: ${env.STAGE, "prod"}
 functions:
   api:
     handler: src/index.handler
