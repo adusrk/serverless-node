@@ -1,3 +1,5 @@
+//First version of this app is completed on 24th March, 2024 at 04:13 AM with this serverless backend deployed and hosted successfully on next.js front-end.
+
 const serverless = require("serverless-http");
 const express = require("express");
 const { getDbClient } = require("./db/clients.js");
