@@ -8,6 +8,7 @@ if(args.length !== 2){
 }
 
 if (require.main === module) {
+    console.log("Update secret!");
   const[stage, dbUrl] = args
   secrets.putDatabaseUrl(stage, dbUrl).then(val=>{
     console.log(`Secret set ${val}`)

@@ -2,8 +2,9 @@ const serverless = require("serverless-http");
 const express = require("express");
 const { getDbClient } = require("./db/clients.js");
 const app = express();
+const STAGE = process.env.STAGE || "prod";
 const crud = require("./db/crud.js");
-const validators = require("./db/validators.js")
+const validators = require("./db/validators.js");
 app.use(express.json());
 
 app.get("/", async (req, res, next) => {
@@ -16,6 +17,7 @@ app.get("/", async (req, res, next) => {
     message: "Hello from root!",
     // results: results.now,
     delta: delta,
+    stage: STAGE,
   });
 });
 
@@ -35,13 +37,13 @@ app.get("/leads", async (req, res, next) => {
 app.post("/leads", async (req, res, next) => {
   const postData = await req.body;
   // const {email} = data
-  const {data, hasError, message} = await validators.validateLead(postData)
+  const { data, hasError, message } = await validators.validateLead(postData);
 
-  if(hasError === true){
+  if (hasError === true) {
     return res.status(400).json({
-      message: message ? message: "Invalid request"
+      message: message ? message : "Invalid request",
     });
-  } else if(hasError === undefined){
+  } else if (hasError === undefined) {
     return res.status(500).json({
       message: "Server error",
     });
@@ -65,3 +67,7 @@ app.use((req, res, next) => {
 // })
 
 module.exports.handler = serverless(app);
+
+
+
+//  tsx src/cli/putSecrets.js dev postgres://neondb_owner:fiLzx2MQ7npt@ep-black-fog-a14qz9zc.ap-southeast-1.aws.neon.tech/neondb?sslmode=require

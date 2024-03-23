@@ -1,6 +1,7 @@
 const { SSMClient,
   GetParameterCommand,
   PutParameterCommand } = require("@aws-sdk/client-ssm");
+require("dotenv").config();
 const AWS_REGION = "ap-southeast-1";
 const STAGE = process.env.STAGE || "prod";
 
