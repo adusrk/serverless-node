@@ -14,7 +14,7 @@ app.get("/", async (req, res, next) => {
   const [dbNow] = await sql`select now();`;
   const delta = dbNow.now.getTime() - now;
   return res.status(200).json({
-    message: "Hello from root!",
+    message: "Hello from root server!",
     // results: results.now,
     delta: delta,
     stage: STAGE,
