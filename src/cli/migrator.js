@@ -1,7 +1,7 @@
 const secrets = require("../lib/secrets.js");
 const schema = require("../db/schemas.js");
 const {migrate} = require('drizzle-orm/postgres-js/migrator')
-require("dotenv").config();
+// require("dotenv").config();
 const { Pool, neonConfig } = require("@neondatabase/serverless");
 const ws = require("ws");
 const {drizzle} = require('drizzle-orm/neon-serverless')
