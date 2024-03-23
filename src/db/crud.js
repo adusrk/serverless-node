@@ -15,10 +15,9 @@ async function newLead({ email }) {
 }
 
 async function listLeads() {
-    const db = await clients.getDrizzleDbClient();
-    const results = await db
-      .select().from(schemas.LeadTable).where(eq(schemas.LeadTable.id, id))
-    return results;
+  const db = await clients.getDrizzleDbClient()
+  const results = await db.select().from(schemas.LeadTable).orderBy(desc(schemas.LeadTable.createdAt)).limit(10)
+  return results
 }
 
 async function getLead(id) {
